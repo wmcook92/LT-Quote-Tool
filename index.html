@@ -89,6 +89,11 @@ body{background:#f8fafc;}
 .compare-table .mini-btn{border:1px solid #e2e8f0;background:#fff;color:#64748b;border-radius:10px;padding:6px 8px;box-shadow:none;font-size:12px;}
 .compare-note{margin-top:12px;color:#64748b;font-size:12px;line-height:1.4;}
 .shop-table{min-width:1180px;}
+.shop-table td.amount-cell,.shop-table td.rate-cell{text-align:right;}
+.shop-table td.amount-cell input,.shop-table td.rate-cell input{text-align:right;}
+.shop-table th.lender-head{text-transform:none;font-size:13px;color:#0f172a;background:#fff;}
+.shop-table th.sub-head{text-align:right;}
+@media print{.print-empty{display:none!important}.shop-table td.amount-cell,.shop-table td.rate-cell{text-align:right}.shop-table th.lender-head{font-size:10px;color:#0f172a!important;background:#fff!important}.shop-table th.sub-head{text-align:right}}
 .shop-lender-select{font-weight:800;color:#0f172a;}
 .shop-meta-row th{background:#fbfcfe;color:#64748b;}
 @media(max-width:900px){.comparison-page{padding:20px 12px}.compare-header{display:block}.compare-actions{margin-top:12px}.compare-card-head{display:block}.compare-card-head .compare-actions{margin-top:12px}}
@@ -387,16 +392,21 @@ locSetDefaultDates(); locBuildSchedule();
   }
 
   function renderShop(){
-    const head1 = `<tr><th rowspan="2" class="term-col">Term</th>${shop.lenders.map((l,i)=>`<th colspan="2">${lenderSelect(l.lender,`data-shop-lender="${i}"`)}</th>`).join('')}<th rowspan="2" class="row-actions">Action</th></tr>`;
-    const head2 = `<tr>${shop.lenders.map(()=>`<th>Amount</th><th>Payback rate</th>`).join('')}</tr>`;
-    const bodyRows = shop.terms.map((term,ri)=>`<tr data-term-index="${ri}"><td class="term-col">${input(term,'data-shop-term="true"')}</td>${shop.lenders.map((l,li)=>`<td>${input(l.amounts[ri] ?? '',`data-shop-cell="amount" data-lender-index="${li}"`)}</td><td>${input(l.rates[ri] ?? '',`data-shop-cell="rate" data-lender-index="${li}"`)}</td>`).join('')}<td class="row-actions"><button class="mini-btn" data-shop-term-remove="${ri}">Delete</button></td></tr>`).join('');
-    const fees = `<tr class="shop-meta-row"><th>Orig fees</th>${shop.lenders.map((l,li)=>`<td colspan="2">${input(l.fees,`data-shop-meta="fees" data-lender-index="${li}"`)}</td>`).join('')}<td class="row-actions"></td></tr>`;
-    const payment = `<tr class="shop-meta-row"><th>Payment</th>${shop.lenders.map((l,li)=>`<td colspan="2">${input(l.payment,`data-shop-meta="payment" data-lender-index="${li}"`)}</td>`).join('')}<td class="row-actions"></td></tr>`;
+    const termRowHasData = ri => String(shop.terms[ri] ?? '').trim() || shop.lenders.some(l => String(l.amounts[ri] ?? '').trim() || String(l.rates[ri] ?? '').trim());
+    const feesHasData = shop.lenders.some(l => String(l.fees ?? '').trim());
+    const paymentHasData = shop.lenders.some(l => String(l.payment ?? '').trim());
+    const head1 = `<tr><th rowspan="2" class="term-col">Term</th>${shop.lenders.map((l,i)=>`<th colspan="2" class="lender-head">${lenderSelect(l.lender,`data-shop-lender="${i}"`)}</th>`).join('')}<th rowspan="2" class="row-actions">Action</th></tr>`;
+    const head2 = `<tr>${shop.lenders.map(()=>`<th class="sub-head">Amount</th><th class="sub-head">Payback rate</th>`).join('')}</tr>`;
+    const bodyRows = shop.terms.map((term,ri)=>`<tr data-term-index="${ri}" class="${termRowHasData(ri)?'':'print-empty'}"><td class="term-col">${input(term,'data-shop-term="true"')}</td>${shop.lenders.map((l,li)=>`<td class="amount-cell">${input(l.amounts[ri] ?? '',`data-shop-cell="amount" data-lender-index="${li}"`)}</td><td class="rate-cell">${input(l.rates[ri] ?? '',`data-shop-cell="rate" data-lender-index="${li}"`)}</td>`).join('')}<td class="row-actions"><button class="mini-btn" data-shop-term-remove="${ri}">Delete</button></td></tr>`).join('');
+    const fees = `<tr class="shop-meta-row ${feesHasData?'':'print-empty'}"><th>Orig fees</th>${shop.lenders.map((l,li)=>`<td colspan="2">${input(l.fees,`data-shop-meta="fees" data-lender-index="${li}"`)}</td>`).join('')}<td class="row-actions"></td></tr>`;
+    const payment = `<tr class="shop-meta-row ${paymentHasData?'':'print-empty'}"><th>Payment</th>${shop.lenders.map((l,li)=>`<td colspan="2">${input(l.payment,`data-shop-meta="payment" data-lender-index="${li}"`)}</td>`).join('')}<td class="row-actions"></td></tr>`;
     get('shoppingComparisonTable').querySelector('thead').innerHTML = head1 + head2;
     get('shoppingComparisonTable').querySelector('tbody').innerHTML = bodyRows + fees + payment;
   }
 
   function printPage(page){
+    if(page === 'shopPage') renderShop();
+    if(page === 'deckPage') renderDeck();
     ['termPage','locPage','deckPage','shopPage'].forEach(id => document.getElementById(id).classList.toggle('active', id === page));
     window.print();
   }
@@ -444,6 +454,15 @@ locSetDefaultDates(); locBuildSchedule();
       shop.terms.push('');
       shop.lenders.forEach(l => { l.amounts.push(''); l.rates.push(''); });
       renderShop();
+    }
+    if(e.target.dataset.shopTermRemove !== undefined){
+      const idx = Number(e.target.dataset.shopTermRemove);
+      if(shop.terms.length > 1){
+        shop.terms.splice(idx,1);
+        shop.lenders.forEach(l => { l.amounts.splice(idx,1); l.rates.splice(idx,1); });
+        renderShop();
+      }
+      return;
     }
     if(e.target.id === 'addShopLender'){
       shop.lenders.push({lender:'', fees:'', payment:'', amounts:shop.terms.map(()=>''), rates:shop.terms.map(()=> '')});
