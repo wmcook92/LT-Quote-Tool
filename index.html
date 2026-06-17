@@ -62,7 +62,37 @@ body{background:#f8fafc;}
 .loc-print-title{display:none;}
 @media(max-width:1180px){.loc-layout{grid-template-columns:1fr}.loc-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.loc-table-wrap{overflow-x:auto}.loc-table{min-width:980px}}
 @media(max-width:900px){.shell{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.loc-header{display:block}.loc-tag{margin-top:12px}.term-page main,.loc-page{padding:20px 12px}}
-@media print{.sidebar,.loc-page:not(.active){display:none!important}.shell{display:block}.content{width:100%}.loc-page{padding:0}.loc-container{max-width:none}.loc-header,.loc-card,.loc-metrics,.loc-note{display:none!important}.loc-table-card{box-shadow:none;border:0;border-radius:0}.loc-table-head{display:block;border:0;padding:0 0 10px;background:#fff}.loc-table-head .loc-actions{display:none!important}.loc-print-title{display:block;font-size:20px;font-weight:800;margin:0 0 6px;color:#000}.loc-table-wrap{max-height:none;overflow:visible}.loc-table{font-size:9px;border-collapse:collapse;width:100%;min-width:0}.loc-table th{position:static;background:#f1f1f1;color:#000}.loc-table th,.loc-table td{padding:4px 5px;border:1px solid #aaa;color:#000}}
+@media print{.sidebar,.loc-page:not(.active){display:none!important}.shell{display:block}.content{width:100%}.loc-page{padding:0}.loc-container{max-width:none}.loc-header,.loc-card,.loc-metrics,.loc-note{display:none!important}.loc-table-card{box-shadow:none;border:0;border-radius:0}.loc-table-head{display:block;border:0;padding:0 0 10px;background:#fff}.loc-table-head .loc-actions{display:none!important}.loc-table-head h2{display:none!important}.loc-print-title{display:block;font-size:20px;font-weight:800;margin:0 0 6px;color:#000}.loc-table-wrap{max-height:none;overflow:visible}.loc-table{font-size:9px;border-collapse:collapse;width:100%;min-width:0}.loc-table th{position:static;background:#f1f1f1;color:#000}.loc-table th,.loc-table td{padding:4px 5px;border:1px solid #aaa;color:#000}}
+
+/* Editable comparison tools */
+.comparison-page{padding:32px 20px 56px;}
+.compare-container{width:100%;max-width:1500px;margin:0 auto;}
+.compare-header{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;margin-bottom:18px;}
+.compare-header h1{font-size:clamp(32px,4vw,48px);line-height:1;margin:4px 0 10px;color:#0f172a;}
+.compare-header p{color:#475569;max-width:850px;}
+.compare-card{background:#fff;border:1px solid #e2e8f0;border-radius:24px;box-shadow:0 10px 30px rgba(15,23,42,.05);overflow:hidden;}
+.compare-card-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;border-bottom:1px solid #e2e8f0;background:#fbfcfe;}
+.compare-card-head h2{font-size:18px;margin:0;}
+.compare-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.compare-primary,.compare-secondary{border:0;border-radius:14px;padding:10px 14px;font-weight:800;cursor:pointer;background:#059669;color:#fff;box-shadow:0 5px 14px rgba(5,150,105,.16);}
+.compare-secondary{background:#fff;color:#334155;border:1px solid #e2e8f0;box-shadow:none;}
+.compare-table-wrap{width:100%;overflow:auto;}
+.compare-table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;font-size:13px;}
+.compare-table th,.compare-table td{border-bottom:1px solid #edf1f6;border-right:1px solid #edf1f6;padding:10px 8px;text-align:left;vertical-align:middle;}
+.compare-table th:last-child,.compare-table td:last-child{border-right:0;}
+.compare-table th{background:#f0fdf4;color:#047857;font-size:12px;text-transform:uppercase;letter-spacing:.04em;font-weight:900;}
+.compare-table input,.compare-table select{width:100%;height:36px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;color:#0f172a;padding:0 9px;font-size:13px;}
+.compare-table input:focus,.compare-table select:focus{outline:3px solid rgba(5,150,105,.14);border-color:#059669;}
+.compare-table .term-col{width:110px;font-weight:800;color:#475569;background:#f8fafc;}
+.compare-table .amount-col,.compare-table .rate-col{min-width:130px;}
+.compare-table .row-actions{width:72px;text-align:center;}
+.compare-table .mini-btn{border:1px solid #e2e8f0;background:#fff;color:#64748b;border-radius:10px;padding:6px 8px;box-shadow:none;font-size:12px;}
+.compare-note{margin-top:12px;color:#64748b;font-size:12px;line-height:1.4;}
+.shop-table{min-width:1180px;}
+.shop-lender-select{font-weight:800;color:#0f172a;}
+.shop-meta-row th{background:#fbfcfe;color:#64748b;}
+@media(max-width:900px){.comparison-page{padding:20px 12px}.compare-header{display:block}.compare-actions{margin-top:12px}.compare-card-head{display:block}.compare-card-head .compare-actions{margin-top:12px}}
+@media print{.comparison-page:not(.active){display:none!important}.comparison-page{padding:0}.compare-container{max-width:none}.compare-header .compare-actions,.compare-card-head .compare-actions,.mini-btn{display:none!important}.compare-header{border-bottom:2px solid #86efac;padding-bottom:12px;margin-bottom:14px}.compare-header .eyebrow{color:#047857!important}.compare-table .row-actions{display:none!important}.compare-header h1{color:#0f172a!important}.compare-card{box-shadow:none;border:1px solid #bbf7d0;border-radius:10px;overflow:hidden}.compare-card-head{display:block;border-bottom:1px solid #bbf7d0;padding:8px 10px;background:#f0fdf4;color:#047857}.compare-table-wrap{overflow:visible}.compare-table,.shop-table{min-width:0;font-size:9px;border-collapse:collapse;table-layout:fixed}.compare-table th,.compare-table td{padding:4px 4px;border:1px solid #bbf7d0;color:#0f172a}.compare-table th{background:#f0fdf4;color:#047857}.compare-table input,.compare-table select{border:0;padding:0;height:auto;font-size:9px;background:transparent;color:#0f172a;appearance:none}.compare-note{display:none!important}}
 
 </style>
 </head>
@@ -78,6 +108,8 @@ body{background:#f8fafc;}
     <nav>
       <button class="nav-btn active" id="navTerm">Term Loan Calc</button>
       <button class="nav-btn" id="navLoc" style="margin-top:10px">LOC Calc</button>
+      <button class="nav-btn" id="navDeck" style="margin-top:10px">On Deck Comparison</button>
+      <button class="nav-btn" id="navShop" style="margin-top:10px">Shopping Comparison Tool</button>
     </nav>
   </aside>
   <div class="content">
@@ -116,7 +148,6 @@ body{background:#f8fafc;}
             <label class="loc-field"><span>Payment Frequency</span><select id="locFrequency"><option value="Weekly">Weekly</option><option value="Monthly" selected>Monthly</option></select></label>
           </div>
           <label class="loc-field"><span>Periodic Rate</span><input id="locPeriodicRate" type="text" readonly value="" /><span class="loc-hint">Calculated from APR ÷ 52 for weekly or APR ÷ 12 for monthly.</span></label>
-          <button class="loc-primary loc-full" id="locRecalcBtn">Recalculate Schedule</button>
           <div class="loc-actions"><button class="loc-secondary" id="locResetDatesBtn">Reset Dates</button></div>
         </div>
       </section>
@@ -126,7 +157,7 @@ body{background:#f8fafc;}
         <section class="loc-table-card" id="locPrintArea">
           <div class="loc-table-head">
             <div>
-              <div class="loc-print-title">Amortization Schedule</div>
+              <div class="loc-print-title">Line of Credit Amortization Calculator</div>
               <h2>Amortization Schedule</h2>
               <div class="loc-small" id="locScheduleSubhead"></div>
             </div>
@@ -143,12 +174,39 @@ body{background:#f8fafc;}
   </div>
 </section>
 
+
+<section id="deckPage" class="page comparison-page">
+  <div class="compare-container">
+    <div class="compare-header">
+      <div><p class="eyebrow">LendingTree</p><h1>On Deck Comparison</h1></div>
+      <div class="compare-actions"><button class="compare-primary" id="printDeckComparison">Print / Save PDF</button></div>
+    </div>
+    <section class="compare-card" id="deckPrintArea">
+      <div class="compare-card-head"><h2>Overview</h2><div class="compare-actions"><button class="compare-secondary" id="addDeckRow">+ Add row</button></div></div>
+      <div class="compare-table-wrap"><table class="compare-table" id="deckComparisonTable"><thead><tr><th class="term-col">Term (Months)</th><th class="amount-col">Amount</th><th class="rate-col">Simple Interest Rate - 25% Prepay Discount</th><th class="amount-col">Amount</th><th class="rate-col">Simple Interest Rate - 100% Prepay Discount</th><th class="row-actions">Action</th></tr></thead><tbody></tbody></table></div>
+    </section>
+  </div>
+</section>
+
+<section id="shopPage" class="page comparison-page">
+  <div class="compare-container">
+    <div class="compare-header">
+      <div><p class="eyebrow">LendingTree</p><h1>Lender Comparison</h1></div>
+      <div class="compare-actions"><button class="compare-primary" id="printShoppingComparison">Print / Save PDF</button></div>
+    </div>
+    <section class="compare-card" id="shopPrintArea">
+      <div class="compare-card-head"><h2>Offers Overview</h2><div class="compare-actions"><button class="compare-secondary" id="addShopLender">+ Add lender</button><button class="compare-secondary" id="addShopTerm">+ Add term</button><button class="compare-secondary" id="removeShopLender">Remove last lender</button></div></div>
+      <div class="compare-table-wrap"><table class="compare-table shop-table" id="shoppingComparisonTable"><thead></thead><tbody></tbody></table></div>
+    </section>
+  </div>
+</section>
+
   </div>
 </div>
 <script>
 const lenderConfig=[{lender:'OnDeck',prepayType:'Standard',standardPrepayPct:.25,has100Prepay:true},{lender:'Forward Financing',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'Kapitus',prepayType:'Standard',standardPrepayPct:.1,has100Prepay:true},{lender:'Mulligan',prepayType:'Standard',standardPrepayPct:.5,has100Prepay:true},{lender:'Byzfunder',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'Bitty Advance',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'Expansion Capital',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'Pearl Capital',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'CAN Capital',prepayType:'Standard',standardPrepayPct:.3,has100Prepay:false},{lender:'Vox Funding',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'Samson',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'Peac Solutions',prepayType:'Standard',standardPrepayPct:.3,has100Prepay:true},{lender:'BriteCap',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'Bluevine',prepayType:'Standard',standardPrepayPct:null,has100Prepay:true},{lender:'Fora Financial',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'BHG Financial',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'Biz2Credit',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'Rapid Finance',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'Idea Financial',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false},{lender:'Quantum Solutions',prepayType:'Custom Prepay',standardPrepayPct:null,has100Prepay:false}];
 const stips=['Drivers License','Voided Check','Bank Verification','Month to Date Transactions','ID Verification','Tax Return','Aging A/R','Aging A/P','YTD P&L','Year End P&L','YTD Balance Sheet','Year End Balance Sheet','8821','Virtual Site Inspection','Payoff Letter','Transfer Account Bank Statements','Merchant Interview','Funding call','Additional bank statements','Online Checkout'];
-const proposalFields=[['lender','Lender'],['fundingAmount','Funding amount'],['netFunding','Net funding'],['payoffBalance','Payoff balance'],['paymentStructure','Payment frequency'],['numberOfPayments','Number of payments'],['paymentAmount','Payment amount'],['totalRepayment','Total repayment'],['interestRate','Interest rate'],['originationFee','Origination fee'],['prepaymentDiscount','Prepayment discount'],['term','Estimated term'],['stipulations','Stipulations'],['notes','Quote notes']];
+const proposalFields=[['lender','Lender'],['fundingAmount','Funding amount'],['term','Estimated term'],['payoffBalance','Payoff balance'],['paymentStructure','Payment frequency'],['numberOfPayments','Number of payments'],['totalRepayment','Total repayment'],['interestRate','Interest rate'],['paymentAmount','Payment amount'],['netFunding','Net funding'],['originationFee','Origination fee'],['prepaymentDiscount','Prepayment discount'],['stipulations','Stipulations'],['notes','Quote notes']];
 const uid=()=>Math.random().toString(36).slice(2);let customer={customerName:'',businessName:'',preparedBy:'',proposalDate:''};let visible=Object.fromEntries(proposalFields.map(([k])=>[k,true]));
 const blankQuote=()=>({id:uid(),lender:'',prepayOption:'',customPrepayBreakdown:'',fundingAmount:'',outstandingBalance:'',interestWaived:'',paymentStructure:'',numberOfPayments:'',originationFeePct:null,manualOriginationFee:'',interestRate:'',recommended:false,notes:'',stipulations:{}});
 let quotes=[blankQuote()];
@@ -260,7 +318,6 @@ function locSetDefaultDates(){
   const today = new Date(); L('locDrawDate').value = locIso(today); L('locFirstDueDate').value = locIso(locCalcFirstDue(today, L('locFrequency').value));
 }
 ['locApr','locAmount','locTerm','locFrequency','locDrawDate','locFirstDueDate','locCustomerName'].forEach(id => L(id).addEventListener('input', () => { if(id==='locFrequency' || id==='locDrawDate') L('locFirstDueDate').value = locIso(locCalcFirstDue(locParseDate(L('locDrawDate').value), L('locFrequency').value)); locBuildSchedule(); }));
-L('locRecalcBtn').addEventListener('click', locBuildSchedule);
 L('locResetDatesBtn').addEventListener('click', () => { locSetDefaultDates(); locBuildSchedule(); });
 L('locCsvBtn').addEventListener('click', locExportCSV);
 L('locExcelBtn').addEventListener('click', locExportExcel);
@@ -273,14 +330,133 @@ locSetDefaultDates(); locBuildSchedule();
 <script>
 (function(){
   function showPage(page){
-    document.getElementById('termPage').classList.toggle('active', page === 'term');
-    document.getElementById('locPage').classList.toggle('active', page === 'loc');
-    document.getElementById('navTerm').classList.toggle('active', page === 'term');
-    document.getElementById('navLoc').classList.toggle('active', page === 'loc');
+    const pages = {term:'termPage', loc:'locPage', deck:'deckPage', shop:'shopPage'};
+    const navs = {term:'navTerm', loc:'navLoc', deck:'navDeck', shop:'navShop'};
+    Object.entries(pages).forEach(([key,id]) => document.getElementById(id).classList.toggle('active', page === key));
+    Object.entries(navs).forEach(([key,id]) => document.getElementById(id).classList.toggle('active', page === key));
     window.scrollTo({top:0, behavior:'smooth'});
   }
   document.getElementById('navTerm').addEventListener('click', () => showPage('term'));
   document.getElementById('navLoc').addEventListener('click', () => showPage('loc'));
+  document.getElementById('navDeck').addEventListener('click', () => showPage('deck'));
+  document.getElementById('navShop').addEventListener('click', () => showPage('shop'));
+})();
+</script>
+
+<script>
+(function(){
+  const get = id => document.getElementById(id);
+  const lenderOptions = () => lenderConfig.map(x => x.lender);
+  const escapeHtml = value => String(value ?? '').replace(/[&<>\"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[m]));
+  const lenderSelect = (value, attrs='') => `<select class="shop-lender-select" ${attrs}><option value="" ${value===''?'selected':''}></option>${lenderOptions().map(l => `<option value="${escapeHtml(l)}" ${l===value?'selected':''}>${escapeHtml(l)}</option>`).join('')}</select>`;
+
+  let deckRows = [
+    {term:'', amount25:'', rate25:'', amount100:'', rate100:''},
+    {term:'', amount25:'', rate25:'', amount100:'', rate100:''},
+    {term:'', amount25:'', rate25:'', amount100:'', rate100:''},
+    {term:'', amount25:'', rate25:'', amount100:'', rate100:''},
+    {term:'', amount25:'', rate25:'', amount100:'', rate100:''},
+    {term:'', amount25:'', rate25:'', amount100:'', rate100:''}
+  ];
+
+  let shop = {
+    terms:['','','','','',''],
+    lenders:[
+      {lender:'', fees:'', payment:'', amounts:['','','','','',''], rates:['','','','','','']},
+      {lender:'', fees:'', payment:'', amounts:['','','','','',''], rates:['','','','','','']},
+      {lender:'', fees:'', payment:'', amounts:['','','','','',''], rates:['','','','','','']},
+      {lender:'', fees:'', payment:'', amounts:['','','','','',''], rates:['','','','','','']},
+      {lender:'', fees:'', payment:'', amounts:['','','','','',''], rates:['','','','','','']},
+      {lender:'', fees:'', payment:'', amounts:['','','','','',''], rates:['','','','','','']}
+    ]
+  };
+
+  function input(value, attrs=''){
+    return `<input ${attrs} value="${escapeHtml(value)}">`;
+  }
+
+  function renderDeck(){
+    get('deckComparisonTable').querySelector('tbody').innerHTML = deckRows.map((r,i)=>`<tr data-index="${i}">
+      <td class="term-col">${input(r.term,'data-deck-field="term"')}</td>
+      <td>${input(r.amount25,'data-deck-field="amount25"')}</td>
+      <td>${input(r.rate25,'data-deck-field="rate25"')}</td>
+      <td>${input(r.amount100,'data-deck-field="amount100"')}</td>
+      <td>${input(r.rate100,'data-deck-field="rate100"')}</td>
+      <td class="row-actions"><button class="mini-btn" data-deck-remove="${i}">Delete</button></td>
+    </tr>`).join('');
+  }
+
+  function renderShop(){
+    const head1 = `<tr><th rowspan="2" class="term-col">Term</th>${shop.lenders.map((l,i)=>`<th colspan="2">${lenderSelect(l.lender,`data-shop-lender="${i}"`)}</th>`).join('')}<th rowspan="2" class="row-actions">Action</th></tr>`;
+    const head2 = `<tr>${shop.lenders.map(()=>`<th>Amount</th><th>Payback rate</th>`).join('')}</tr>`;
+    const bodyRows = shop.terms.map((term,ri)=>`<tr data-term-index="${ri}"><td class="term-col">${input(term,'data-shop-term="true"')}</td>${shop.lenders.map((l,li)=>`<td>${input(l.amounts[ri] ?? '',`data-shop-cell="amount" data-lender-index="${li}"`)}</td><td>${input(l.rates[ri] ?? '',`data-shop-cell="rate" data-lender-index="${li}"`)}</td>`).join('')}<td class="row-actions"><button class="mini-btn" data-shop-term-remove="${ri}">Delete</button></td></tr>`).join('');
+    const fees = `<tr class="shop-meta-row"><th>Orig fees</th>${shop.lenders.map((l,li)=>`<td colspan="2">${input(l.fees,`data-shop-meta="fees" data-lender-index="${li}"`)}</td>`).join('')}<td class="row-actions"></td></tr>`;
+    const payment = `<tr class="shop-meta-row"><th>Payment</th>${shop.lenders.map((l,li)=>`<td colspan="2">${input(l.payment,`data-shop-meta="payment" data-lender-index="${li}"`)}</td>`).join('')}<td class="row-actions"></td></tr>`;
+    get('shoppingComparisonTable').querySelector('thead').innerHTML = head1 + head2;
+    get('shoppingComparisonTable').querySelector('tbody').innerHTML = bodyRows + fees + payment;
+  }
+
+  function printPage(page){
+    ['termPage','locPage','deckPage','shopPage'].forEach(id => document.getElementById(id).classList.toggle('active', id === page));
+    window.print();
+  }
+
+  document.addEventListener('input', e => {
+    if(e.target.dataset.deckField){
+      const row = e.target.closest('tr');
+      if(row) deckRows[Number(row.dataset.index)][e.target.dataset.deckField] = e.target.value;
+    }
+    if(e.target.dataset.shopTerm){
+      const row = e.target.closest('tr');
+      if(row) shop.terms[Number(row.dataset.termIndex)] = e.target.value;
+    }
+    if(e.target.dataset.shopCell){
+      const row = e.target.closest('tr');
+      const termIndex = Number(row.dataset.termIndex);
+      const lenderIndex = Number(e.target.dataset.lenderIndex);
+      const arr = e.target.dataset.shopCell === 'amount' ? shop.lenders[lenderIndex].amounts : shop.lenders[lenderIndex].rates;
+      arr[termIndex] = e.target.value;
+    }
+    if(e.target.dataset.shopMeta){
+      shop.lenders[Number(e.target.dataset.lenderIndex)][e.target.dataset.shopMeta] = e.target.value;
+    }
+  });
+
+  document.addEventListener('change', e => {
+    if(e.target.dataset.shopLender){
+      shop.lenders[Number(e.target.dataset.shopLender)].lender = e.target.value;
+      renderShop();
+    }
+  });
+
+  document.addEventListener('click', e => {
+    if(e.target.id === 'addDeckRow'){
+      deckRows.push({term:'', amount25:'', rate25:'', amount100:'', rate100:''});
+      renderDeck();
+    }
+    if(e.target.dataset.deckRemove){
+      deckRows.splice(Number(e.target.dataset.deckRemove),1);
+      renderDeck();
+    }
+    if(e.target.id === 'printDeckComparison') printPage('deckPage');
+    if(e.target.id === 'printShoppingComparison') printPage('shopPage');
+    if(e.target.id === 'addShopTerm'){
+      shop.terms.push('');
+      shop.lenders.forEach(l => { l.amounts.push(''); l.rates.push(''); });
+      renderShop();
+    }
+    if(e.target.id === 'addShopLender'){
+      shop.lenders.push({lender:'', fees:'', payment:'', amounts:shop.terms.map(()=>''), rates:shop.terms.map(()=> '')});
+      renderShop();
+    }
+    if(e.target.id === 'removeShopLender' && shop.lenders.length > 1){
+      shop.lenders.pop();
+      renderShop();
+    }
+  });
+
+  renderDeck();
+  renderShop();
 })();
 </script>
 
